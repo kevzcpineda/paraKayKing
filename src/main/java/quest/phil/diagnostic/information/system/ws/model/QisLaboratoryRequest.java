@@ -1,0 +1,67 @@
+package quest.phil.diagnostic.information.system.ws.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public enum QisLaboratoryRequest {
+	// CLINICAL MICROSCOPY
+	UCHEM("URINE CHEMICAL"), FECA("FECALYSIS"), PREGT("PREGNANCY TEST"),
+	AFB("ACID-FAST BACILLI"), OBT("OCCULT BLOOD TEST"),
+
+	// HEMATOLOGY
+	CBC("COMPLETE BLOOD COUNT"), BTYP("BLOOD TYPING"), CTM("CLOTTING TIME"), BTM("BLEEDING TIME"),
+	PTM("PROTHROMBIN TIME"), PR131("PR1.31"), APTT("ACTIVATED PARTIAL THROMBOPLASTIN TIME"), MASM("MALARIAL SMEAR"),
+	ESR("ERYTHROCYTE SEDIMENTATION RATE"), FERR("FERRITIN"), RCT("RETICULOCYTE COUNT"),
+
+	// CHEMISTRY
+	FBS("FASTING BLOOD SUGAR"), RBS("RANDOM BLOOD SUGAR"), PPRBS("POST PRANDIAL RANDOM BLOOD SUGAR"), URAC("URIC ACID"),
+	BUN("BLOOD UREA NITROGEN"), CREA("CREATININE"), HBA1C("HEMOGLOBIN A1C"), LIPP("LIPID PROFILE"),
+	OGTT("ORAL GLUCOSE TOLERANCE TEST"), OGCT("ORAL GLUCOSE CHALLENGE TEST (50G)"), ELEC("SERUM ELECTROLYTES"), ENZY("SERUM ENZYMES"),
+	CPK("CREATINE PHOSPHOKINASE"), BILI("BILIRUBIN"), PROT("SERUM PROTEIN"), TIBC("TOTAL IRON BINDING CAPACITY"),
+
+	// SEROLOGY
+	SER("SEROLOGY"), TYPH("TYPHIDOT"), THYR("THYROID"), CRP("C-REACTIVE PROTEIN"),
+	HIV("HUMAN IMMUNODEFICIENCY VIRUSES"), AGEN("TUMOR MARKERS"), COVID("COVID"), ANTIGEN("ANTIGEN"), RTPCR("RTPCR"), 
+	RFT("RHEUMATOID FACTOR TITER"), MS("MEDICAL SERVICE"), TPHA("TPHA WITH TITER"), ASO("ASO TITER"),
+	DGE("DENGUE NS1"), TPN("TROPONIN I"),
+	
+	//MICROBIOLOGY
+	GS("GRAM STAIN");
+
+
+	/* 
+	 * (AGEN) TUMOR MARKERS
+	 * CEA("CARCINOEMBRYONIC ANTIGEN"), AFP("ALPHA-FETOPROTEIN"),
+	 * CA125("CANCER ANTIGEN 125"), CA199("CANCER ANTIGEN 19-9"), CA153("CANCER ANTIGEN 15-3"),  	
+	 */
+	
+	/*
+	 * (BCHE) BASIC CHEMISTRY
+	 * 
+	 * HA1C("HEMAGLOBIN A1C"), ALP("ALKALINE PHOSPHATASE"), GGTP("GGTP"),
+	 * LDH("LDG"), TCAL("TOTAL CALCIUM"), TPRO("TOTAL PROTEIN"),
+	 * INPH("INORGANIC PHOSPHORUS"), ALBU("ALHUMIN"), GLOB("GLOBULIN"),
+	 * MAGN("MAGNESIUM"), IONC("IONIZED CALCIUM"), AGR("A/G RATIO"),
+	 */
+
+	private String serviceRequest;
+
+	QisLaboratoryRequest(String serviceRequest) {
+		this.serviceRequest = serviceRequest;
+	}
+
+	public String getServiceRequest() {
+		return serviceRequest;
+	}
+
+	private static final Map<String, String> serviceRequestList = new HashMap<>();
+	static {
+		for (QisLaboratoryRequest sr : QisLaboratoryRequest.values()) {
+			serviceRequestList.put(String.valueOf(sr), sr.getServiceRequest());
+		}
+	}
+
+	public static Map<String, String> getServiceRequestList() {
+		return serviceRequestList;
+	}
+}
